@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru" data-ng-app="treeDir">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="libs/jquery/jquery-ui.min.css">
+	<link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="libs/awesome/font-awesome.min.css">
+	<link rel="stylesheet" href="libs/awesome/fonts.css">
+	<link rel="stylesheet" href="css/screen.css">
+	<title>app</title>
+</head>
+<body data-ng-controller="mainCtrl" data-ng-cloak>
+	<header>
+		<h1>SPA "файловая структура сервера"</h1>
+	</header>
+	<div id = "#main" class="container" >
+		<div class="row">
+			<div id="main_catalog" class="col-xs-8">
+				<div  id="mainParent" class="inner_wrap">
+					<h2>Корневой каталога</h2>
+					<ul >
+						<li  data-ng-repeat = "item in mainParent" id = "{{item.id}}" data-ng-click = 'showChild(item.path, item.id, $event)' data-ng-show = "item.type === 'dir'">
+							<i class="fa fa-folder-o" aria-hidden="true"></i>
+							<span>{{item.name}}</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="vidget" class="col-xs-3">
+			<div class="inner_wrap">
+				<h2>Виджет<br><span>(содержание выбранного каталога)</span></h2>
+				<ul>
+					<li  data-ng-repeat = "item in vidjet | orderBy : 'type'" id = "v-{{item.id}}">
+						<i data-ng-class="(item.type === 'dir')? 'fa fa-folder-o' : 'fa fa-file'" aria-hidden="true"></i>
+						<span>{{item.name}}</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>	
+	<!-- sokcet.io -->
+	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+	<!-- jquery -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- AngularJS v1.5.3  -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular.min.js"></script>
+	<script type="text/javascript" src="libs/angular/socket.min.js"></script>
+	<!-- app -->
+	<script type="text/javascript" src="js/appTree.js"></script>
+	<!-- controllers -->
+	<script type="text/javascript" src="js/ctrl/mainCtrl.js"></script>
+	<!-- services -->
+	<script type="text/javascript" src="js/service/mainFactory.js"></script>
+	<script type="text/javascript" src="js/service/socketFactory.js"></script>
+	<!-- url -->
+	<script type="text/javascript" src="js/url.js"></script>
+	
+
+</body>
+</html>

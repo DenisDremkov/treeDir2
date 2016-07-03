@@ -1,0 +1,122 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+
+
+	//GENERAL OPTIONS 
+// #=============================================
+	body {
+		font-size: 16px;
+		color: #000;
+		@media (max-width:992px) {
+			font-size: 14px;
+		}
+		@media (max-width:768px) {
+			font-size: 12px;
+		}
+		@media (max-width:500px) {
+			font-size: 10px;
+		}
+	}
+	.clearfloat:after, 
+	.clearfloat:before {
+		content:"";
+		display: table;
+		clear:both;
+	}
+	.container {
+		margin-top: 30px;
+	}
+	a,
+	a:hover,
+	a:focus {
+		text-decoration: none;
+	}
+	input,
+	button {
+		&:focus {
+			outline: none;
+		}
+	}
+h1 {
+	margin-top: 50px;
+	font-size: 2em;
+	text-align: center;
+}	
+.inner_wrap {
+	padding: 15px;
+	border: 1px solid #ccc;
+	h2 {
+		margin-top: 20px;
+		margin-bottom: 20px;
+		text-align: center;
+		font-size: 1.2em;
+		font-weight: bold;
+	}
+}
+
+#vidget {
+	position: fixed;
+	right: 50px;
+	top: 20%;
+	b {color: red;}
+	.inner_wrap {
+		h2 {
+			span {
+				font-size: 0.6em;
+			}
+		}
+	}
+}
+#danger_msg_experiment {
+	color: red;
+}
+#main_catalog {
+	ul {
+		li {
+			color: #999;
+			transition: 0.2s;
+			padding: 7px 5px;
+			border-left: 1px solid #ccc;
+			>span {
+				cursor: pointer;
+			}
+			&:hover {
+				color: #000;
+			}
+		}
+	}
+}
+
+.wrap_for_child {
+	display: block;
+	margin-left: 20px;
+}
+.current_dir {
+	color: #000;
+	>span {color: red};
+	>i {
+		&:before {
+			color: red;
+		}
+	}
+}
+
+.open_triangle {
+	color: #000;
+	>i {
+		position: relative;
+		&:after {
+			content:"";
+			display: block;
+			position: absolute;
+			top: 6px;
+			left: 3px;
+			border: 3px solid transparent;
+			border-left: 9px solid #000;
+		}
+	}
+}
