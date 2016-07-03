@@ -20,12 +20,11 @@ appServer.use(bodyParser.json());
 
 io.on('connection', function(socket) {
   socket.on('destroyWatcher', function(obj) {
-  		watcherFactory.destroyWatcher(obj)
+  	watcherFactory.destroyWatcher(obj)
   });
 });
 
 appServer.get('/getStartTree', function(req, res) {
-
 	objTreeServer.getCurrentElementTree(res, __dirname, fs, io, __dirname)	
 });	
 
